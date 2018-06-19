@@ -1,6 +1,6 @@
 //
 class Adapter {
-  constructor {
+  constructor() {
     this.base_url = "https://itunes.apple.com/search?term="
   }
   // getAlbum(){
