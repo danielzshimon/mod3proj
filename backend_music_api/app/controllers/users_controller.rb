@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   # protect_from_forgery except: [:create]
 
   def search
-    @albums = Album.all
-
-    render json: @albums
+    @users = User.all
+    render json: @users
   end
   # def index
   #   @playlists = Playlist.all
