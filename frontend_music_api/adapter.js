@@ -7,15 +7,15 @@ class Adapter {
   //   return fetch(`${this.base_url}&entity=album&attribute=albumTerm`).(resp => resp.json())
   // }
   searchAlbum(album){
-    return fetch(`https://itunes.apple.com/search?term=${album}&entity=album&attribute=albumTerm`).then(resp => resp.json())
+    return fetch(`${this.base_url}${album}&entity=album&attribute=albumTerm`).then(resp => resp.json())
   },
 
   searchArtists(artist) {
-    return fetch(`https://itunes.apple.com/search?term=${artist}&entity=allArtist`).then(resp => resp.json())
+    return fetch(`${this.base_url}${artist}&entity=allArtist`).then(resp => resp.json())
   },
 
   searchSongs(song) {
-    return fetch(`https://itunes.apple.com/search?term=${song}&entity=song&attribute=songTerm`).then(resp => resp.json())
+    return fetch(`${this.base_url}${song}&entity=song&attribute=songTerm`).then(resp => resp.json())
   }
 
 
