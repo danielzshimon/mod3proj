@@ -1,15 +1,16 @@
 //
 class Adapter {
   constructor() {
-    this.base_url = "http://localhost:3000/"
-    // this.base_url = "https://itunes.apple.com/search?term="
+    this.user_url = "http://localhost:3000/"
+    this.base_url = "https://itunes.apple.com/search?term="
   }
   // getAlbum(){
   //   return fetch(`${this.base_url}&entity=album&attribute=albumTerm`).(resp => resp.json())
   // }
   getUsers(){
-    return fetch(this.base_url).then(resp => resp.json())
+    return fetch(this.user_url).then(resp => resp.json())
   }
+  
   searchAlbum(album){
     return fetch(`${this.base_url}${album}&entity=album&attribute=albumTerm`).then(resp => resp.json())
   }
