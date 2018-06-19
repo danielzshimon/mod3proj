@@ -17,8 +17,8 @@ dan = User.create(username: "DanTheMan",password: "password")
 john = User.create(username: "john",password: "password")
 chris = User.create(username: "chris",password: "password")
 
-work = Playlist.create(user_id: dan.id, playlist_name: "Workout Yams")
-Playlist.create(user_id: john.id,playlist_name: "chill mix")
-Playlist.create(user_id: chris.id, playlist_name: "Heavy death metal xtreme")
+# work = Playlist.create(user_id: dan.id, playlist_name: "Workout Yams")
+# Playlist.create(user_id: john.id,playlist_name: "chill mix")
+# Playlist.create(user_id: chris.id, playlist_name: "Heavy death metal xtreme")
 
-AddedAlbums.create(playlist_id: work.id, album_id: 1)
+# LikedAlbum.create(playlist_id: work.id, album_id: 1)

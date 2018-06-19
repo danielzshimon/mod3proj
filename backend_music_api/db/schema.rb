@@ -12,23 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2018_06_18_195556) do
 
-  create_table "added_albums", force: :cascade do |t|
-    t.integer "playlist_id"
-    t.integer "album_id"
-    t.index ["album_id"], name: "index_added_albums_on_album_id"
-    t.index ["playlist_id"], name: "index_added_albums_on_playlist_id"
-  end
-
   create_table "albums", force: :cascade do |t|
     t.string "name"
     t.float "price"
     t.string "album_url"
   end
 
-  create_table "playlists", force: :cascade do |t|
+  create_table "liked_albums", force: :cascade do |t|
     t.integer "user_id"
-    t.string "playlist_name"
-    t.index ["user_id"], name: "index_playlists_on_user_id"
+    t.integer "album_id"
+    t.index ["album_id"], name: "index_liked_albums_on_album_id"
+    t.index ["user_id"], name: "index_liked_albums_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

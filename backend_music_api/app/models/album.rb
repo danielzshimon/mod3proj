@@ -1,5 +1,5 @@
 class Album < ApplicationRecord
-  has_many :added_albums
-  has_many :playlists, through: :added_albums
+  has_many :liked_albums
+  # belongs_to :user, through: :liked_albums
 
 end

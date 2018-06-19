@@ -1,8 +1,12 @@
 const api = new Adapter()
 const albumBox = document.querySelector(".album_box")
 
+function usersLogTest(){
+  console.log(api.getUsers())
+}
+
 function createAlbumDiv(album){
-  return`<div data-album-id=${album.collectionId}>
+  return`<div class="album_container" data-album-id=${album.collectionId}>
     <h1>${album.collectionName}</h1>
     <img src="${album.artworkUrl100}" alt="">
     <h1>${album.artistName}</h1>
