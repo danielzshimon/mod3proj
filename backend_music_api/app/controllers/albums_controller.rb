@@ -3,7 +3,13 @@ require 'rest-client'
 class AlbumsController < ApplicationController
 
   def index
-    render json: RestClient.get('https://itunes.apple.com/search?term=dookie')
+    @albums = Album.all
+    render json: @albums
+  end
+  def create
+    test = params['_json']
+    allstuff = RestClient.get("https://itunes.apple.com/search?term=#{test}&entity=album&attribute=albumTerm")
+    render json: allstuff
   end
 end
 # def search
