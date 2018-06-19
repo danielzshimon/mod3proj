@@ -13,10 +13,6 @@ class Adapter {
     return fetch(this.user_url).then(resp => resp.json())
   }
 
-  // searchAlbum(album){
-  //   return fetch(`${this.base_url}${album}&entity=album&attribute=albumTerm`).then(resp => resp.json())
-  // }
-
   searchArtists(artist) {
     return fetch(`https://itunes.apple.com/search?term=${artist}&entity=allArtist`).then(resp => resp.json())
   }

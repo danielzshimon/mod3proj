@@ -39,6 +39,7 @@ function removeNewForm(){
 }
 
 function appendAlbums(e){
+  albumBox.innerHTML=''
   api.searchAlbums(e).then(albums =>{
     albums.results.forEach(album =>{
       albumBox.innerHTML+=createAlbumDiv(album)

@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
   document.addEventListener('submit', (e) =>{
     e.preventDefault()//no load
       if(e.target.id === 'search_form'){
-        // api.searchAlbums(e.target.album_search_input.value).then(console.log)
-      appendAlbums(e.target.album_search_input.value)
+        appendAlbums(e.target.album_search_input.value)
     }else if(e.target.id === 'new_form'){
       debugger
     }
