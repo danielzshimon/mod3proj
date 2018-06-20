@@ -3,7 +3,7 @@ class Adapter {
   constructor() {//urls for our requests
     this.user_url = "http://localhost:3000/"
     this.albums_url = "http://localhost:3000/album"
-    this.liked_albums_url = "http://localhost:3000/user/1"
+    this.liked_albums_url = "http://localhost:3000/users/1/liked_albums"
   }
 
   toJSON(data) {//needed
@@ -34,9 +34,9 @@ class Adapter {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify('album: data')
+    body: JSON.stringify(data)
   };
-  return this.toJSON(fetch(this.albums_url, options));
+  return this.toJSON(fetch(this.liked_albums_url, options));
   }
 }
 
