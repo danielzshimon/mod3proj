@@ -11,12 +11,12 @@ class LikedAlbumsController < ApplicationController
 
     user = User.all.find_by(id: params[:user_id])
 
-    album_exists_but_is_not_favorited = false
+    album_doesnt_exist_and_is_not_favorited = false
     begin
-      user.albums.find(params[:albumId])
+      user.albums.find(params[:albumId]) #does this throw and error???false
     rescue ActiveRecord::RecordNotFound => e
-
-      album_exists_but_is_not_favorited = true
+        #it dooo
+      album_doesnt_exist_and_is_not_favorited = true
     end
     # byebug
 # if user.liked_albums contains 'this id' dont add a like
@@ -29,16 +29,25 @@ class LikedAlbumsController < ApplicationController
         liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
         liked_album.save
 
-    elsif album_exists_but_is_not_favorited
+    elsif album_doesnt_exist_and_is_not_favorited
       # byebug
-      alba = Album.create(album_name: params[:collectionName],
-        artist_name: params[:artistName],
-        price: params[:collectionPrice],
-        album_url: params[:artworkUrl100],
-        id: params[:albumId])
+      if Album.where(id: params[:albumId]) == []
 
-      liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
-      liked_album.save
+        alba = Album.create(album_name: params[:collectionName],
+          artist_name: params[:artistName],
+          price: params[:collectionPrice],
+          album_url: params[:artworkUrl100],
+          id: params[:albumId])
+
+        liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
+        liked_album.save
+
+      else
+
+        liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: params[:albumId]})
+        liked_album.save
+      end
+
     end
 
 
