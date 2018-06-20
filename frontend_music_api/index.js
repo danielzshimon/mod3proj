@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', function(){
   document.addEventListener('click',(e)=>{
     if(e.target.id === 'new_button'){
       renderNewForm()
-    // }else if(e.target.id === 'like_album'){
-    //   // e.target.dataset.albumId
-    //   // post request to add this album to backend
-    //   sendAlbumData(e)
-    //   console.log('sup');
+    }else if(e.target.id === 'render_user_likes'){
+      // debugger
+      renderLikedAlbums(e.target.dataset.userId)
+      //clear div
+      //getUsers(e.target.dataset.userId)
+      //function for displaying this Shite
+
      }
   })
 

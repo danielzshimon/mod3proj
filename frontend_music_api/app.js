@@ -21,6 +21,22 @@ function createAlbumDiv(album){
   </form>`
 }
 
+function renderLikesDiv(album){
+  return`
+  <form class="album_container" data-album-id=${album.id}>
+    <h1 id='album_name'>${album.album_name}</h1>
+    <img src="${album.album_url}" alt="">
+    <h1 id='album_artist'>${album.artist_name}</h1>
+    <p id='album_price'>${album.price}</p>
+    <button id='delete_album' data-album-id=${album.id} type="submit">Fuck this album</button>
+
+    <p>------------------------------------------------css</p>
+    <br>
+  </form>`
+}
+
+
+
 function createNewForm(){
 return`<form id="new_form" action="index.html" method="post">
         <input id='album_new_name_input' placeholder="Album Name" type="text">
@@ -68,6 +84,17 @@ function appendAlbums(e){
   api.searchAlbums(e).then(albums =>{
     albums.results.forEach(album =>{
       albumBox.innerHTML+=createAlbumDiv(album)
+    })
+  })
+}
+
+function renderLikedAlbums(e){
+  albumBox.innerHTML=''
+  api.getUserLikes(e).then(user =>{
+    console.log(user);
+    user.albums.forEach(album =>{
+      console.log(album);
+      albumBox.innerHTML+=renderLikesDiv(album)
     })
   })
 }
