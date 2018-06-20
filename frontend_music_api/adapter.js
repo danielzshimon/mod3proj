@@ -2,7 +2,7 @@
 class Adapter {
   constructor() {//urls for our requests
     this.user_url = "http://localhost:3000/"
-    this.albums_url = "http://localhost:3000/album"
+    this.albums_url = "http://localhost:3000/albums"
     this.liked_albums_url = "http://localhost:3000/users/1/liked_albums"
   }
 
@@ -37,7 +37,19 @@ class Adapter {
     body: JSON.stringify(data)
   };
   return this.toJSON(fetch(this.liked_albums_url, options));
-  }
+}
+// ,
+  // likeAlbum(data){
+  // let options = {
+  //   method: 'POST',
+  //   headers: {
+  //     'Accept': 'application/json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(data)
+  // };
+  // return this.toJSON(fetch(this.????, options));
+  // }
 }
 
 

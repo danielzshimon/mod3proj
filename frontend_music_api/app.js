@@ -8,14 +8,17 @@ function usersLogTest(){
 }
 
 function createAlbumDiv(album){
-  return`<div class="album_container" data-album-id=${album.collectionId}>
-    <h1>${album.collectionName}</h1>
+  return`
+  <form class="album_container" data-album-id=${album.collectionId}>
+    <h1 id='album_name'>${album.collectionName}</h1>
     <img src="${album.artworkUrl100}" alt="">
-    <h1>${album.artistName}</h1>
-    <p>${album.collectionPrice}</p>
+    <h1 id='album_artist'>${album.artistName}</h1>
+    <p id='album_price'>${album.collectionPrice}</p>
+    <button id='like_album' data-album-id=${album.collectionId} type="submit">i dig it</button>
+
     <p>------------------------------------------------css</p>
     <br>
-  </div>`
+  </form>`
 }
 
 function createNewForm(){
@@ -35,6 +38,17 @@ function renderNewForm(){
 
 function removeNewForm(){
   newFormHolder.innerHTML=''
+}
+function sendAlbumData(event){
+  const sendAlbumImage = event.target.querySelector('img').src
+  const sendAlbumName = event.target.querySelector('#album_name').innerText
+  const sendAlbumId = event.target.dataset.albumId
+  const sendAlbumPrice = event.target.querySelector('#album_price').innerText
+  const sendArtistName = event.target.querySelector('#album_artist').innerText
+  return {collectionName: sendAlbumName,
+    artistName: sendArtistName,
+    artworkUrl100: sendAlbumImage,
+    collectionPrice: sendAlbumPrice, albumId: sendAlbumId}
 }
 function makeAlbumData(event){
   const newFormAlbumName = document.getElementById('new_form').album_new_name_input.value

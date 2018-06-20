@@ -7,12 +7,14 @@ class LikedAlbumsController < ApplicationController
     render json: @liked_albums
   end
 
-  def create
-    
-    alba = Album.create(album_name: params[:collectionName], artist_name: params[:artistName], price: params[:collectionPrice], album_url: params[:artworkUrl100])
-    # alba = Album.create(create_album_params)
+  def create#adding to backend
+    byebug
+# if user.liked_albums contains 'this id' dont add a like
+    alba = Album.create(album_name: params[:collectionName],
+       artist_name: params[:artistName],
+       price: params[:collectionPrice],
+       album_url: params[:artworkUrl100])
     liked_album = LikedAlbum.new({user_id: params[:user_id],album_id: alba.id})
-    #user and album
     liked_album.save
     render json: liked_album
   end
