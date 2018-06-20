@@ -1,10 +1,10 @@
 class LikedAlbumsController < ApplicationController
-  protect_from_forgery except: [:create]
+  # protect_from_forgery except: [:create]
 
   def index
     @liked_albums = LikedAlbum.all
     # render html: index template
-    render json: @liked_animals
+    render json: @liked_albums
   end
 
   def create

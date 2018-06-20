@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function(){
         appendAlbums(e.target.album_search_input.value)
     }else if(e.target.id === 'new_form'){
       //on submit new form send to backend and save
-      debugger
+      api.createAlbum(makeAlbumData(e))
     }
   })
 })

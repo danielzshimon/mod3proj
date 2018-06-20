@@ -1,10 +1,7 @@
 const api = new Adapter()
 const albumBox = document.querySelector(".album_box")
 const newFormHolder = document.getElementById('new_form_holder')
-// const newFormAlbumName = document.getElementById('new_form').album_new_name_input
-// const newFormArtistName = document.getElementById('new_form').album_new_artist_name_input
-// const newFormArtUrl = document.getElementById('new_form').album_new_art_url
-// const newFormAlbumPrice = document.getElementById('new_form').album_new_price
+
 
 function usersLogTest(){
   console.log(api.getUsers())
@@ -38,6 +35,18 @@ function renderNewForm(){
 
 function removeNewForm(){
   newFormHolder.innerHTML=''
+}
+function makeAlbumData(event){
+  const newFormAlbumName = document.getElementById('new_form').album_new_name_input.value
+  const newFormArtistName = document.getElementById('new_form').album_new_artist_name_input.value
+  const newFormArtUrl = document.getElementById('new_form').album_new_art_url.value
+  const newFormAlbumPrice = document.getElementById('new_form').album_new_price.value
+
+  return {collectionName: newFormAlbumName,
+    artistName: newFormArtistName,
+    artworkUrl100: newFormArtUrl,
+    collectionPrice: newFormAlbumPrice}
+
 }
 
 function appendAlbums(e){

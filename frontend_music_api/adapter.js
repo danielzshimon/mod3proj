@@ -2,7 +2,8 @@
 class Adapter {
   constructor() {//urls for our requests
     this.user_url = "http://localhost:3000/"
-    this.albums_url = "http://localhost:3000/albums"
+    this.albums_url = "http://localhost:3000/album"
+    this.liked_albums_url = "http://localhost:3000/user/1"
   }
 
   toJSON(data) {//needed
@@ -24,7 +25,19 @@ class Adapter {
     body: JSON.stringify(data)
   };
   return this.toJSON(fetch(this.albums_url, options));
-}
+  }
+
+  createAlbum(data){
+  let options = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify('album: data')
+  };
+  return this.toJSON(fetch(this.albums_url, options));
+  }
 }
 
 
