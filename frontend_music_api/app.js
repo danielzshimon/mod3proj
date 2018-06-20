@@ -20,6 +20,7 @@ function createAlbumDiv(album){
     <br>
   </div>`
 }
+
 function createNewForm(){
 return`<form id="new_form" action="index.html" method="post">
         <input id='album_new_name_input' placeholder="Album Name" type="text">
@@ -34,6 +35,7 @@ return`<form id="new_form" action="index.html" method="post">
 function renderNewForm(){
   newFormHolder.innerHTML=createNewForm()
 }
+
 function removeNewForm(){
   newFormHolder.innerHTML=''
 }

@@ -15,8 +15,8 @@ class LikedAlbumsController < ApplicationController
 
   private
 
-  def liked_album_params
-    params.require(:).permit(:name, :gender)
-  end
+  # def liked_album_params
+  #   params.require(:).permit(:name, :gender)
+  # end
 
 end
