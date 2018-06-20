@@ -23,7 +23,7 @@ return`<form id="new_form" action="index.html" method="post">
         <input id='album_new_name_input' placeholder="Album Name" type="text">
         <input id='album_new_artist_name_input' placeholder="Artist Name" type="text">
         <input id='album_new_art_url' placeholder="Album artwork(url)" type="text">
-        <input id='album_new_price' placeholder="Album price" type="number">
+        <input id='album_new_price' placeholder="Album price" type="float">
         <button id='new_form_submit' type="submit" name="button">New dude</button>
       </form><br>
 `
