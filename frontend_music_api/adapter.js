@@ -36,6 +36,7 @@ class Adapter {
     },
     body: JSON.stringify(data)
   };
+  
   return this.toJSON(fetch(this.liked_albums_url, options));
 }
 // ,

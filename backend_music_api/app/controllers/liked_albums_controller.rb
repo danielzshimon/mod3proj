@@ -8,14 +8,42 @@ class LikedAlbumsController < ApplicationController
   end
 
   def create#adding to backend
-    byebug
+
+    user = User.all.find_by(id: params[:user_id])
+
+    album_exists_but_is_not_favorited = false
+    begin
+      user.albums.find(params[:albumId])
+    rescue ActiveRecord::RecordNotFound => e
+
+      album_exists_but_is_not_favorited = true
+    end
+    # byebug
 # if user.liked_albums contains 'this id' dont add a like
-    alba = Album.create(album_name: params[:collectionName],
-       artist_name: params[:artistName],
-       price: params[:collectionPrice],
-       album_url: params[:artworkUrl100])
-    liked_album = LikedAlbum.new({user_id: params[:user_id],album_id: alba.id})
-    liked_album.save
+    if params[:albumId].nil?
+      alba = Album.create(album_name: params[:collectionName],
+        artist_name: params[:artistName],
+        price: params[:collectionPrice],
+        album_url: params[:artworkUrl100])
+
+        liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
+        liked_album.save
+
+    elsif album_exists_but_is_not_favorited
+      # byebug
+      alba = Album.create(album_name: params[:collectionName],
+        artist_name: params[:artistName],
+        price: params[:collectionPrice],
+        album_url: params[:artworkUrl100],
+        id: params[:albumId])
+
+      liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
+      liked_album.save
+    end
+
+
+    # liked_album = LikedAlbum.new({user_id: params[:user_id],album_id: alba.id})
+    # liked_album.save
     render json: liked_album
   end
 
