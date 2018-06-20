@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 2018_06_18_195556) do
 
   create_table "albums", force: :cascade do |t|
-    t.string "name"
+    t.string "album_name"
+    t.string "artist_name"
     t.float "price"
     t.string "album_url"
   end

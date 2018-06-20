@@ -8,14 +8,18 @@
 # t.string :name
 # t.float :price
 # t.string :album_url
-Album.create(name: "johhny album",price: 12.99,album_url: "www.album")
-Album.create(name: "john album",price: 10.99,album_url: "www.album")
-Album.create(name: "chris'",price: 12.99,album_url: "www.album")
-Album.create(name: "DanTheMan",price: 120.99,album_url: "www.album")
+newAlbum = Album.create(album_name: "johhny album", artist_name: "jimmy the band", price: 12.99,album_url: "www.album")
+Album.create(album_name: "john album",artist_name: "john the band",price: 10.99,album_url: "www.album")
+Album.create(album_name: "chris'",artist_name: "chris the band",price: 12.99,album_url: "www.album")
+Album.create(album_name: "DanTheMan",artist_name: "dan the band",price: 120.99,album_url: "www.album")
 
 dan = User.create(username: "DanTheMan",password: "password")
 john = User.create(username: "john",password: "password")
 chris = User.create(username: "chris",password: "password")
+
+LikedAlbum.create({user_id: dan.id, album_id: newAlbum.id})
+LikedAlbum.create({user_id: dan.id, album_id: 2})
+LikedAlbum.create({user_id: chris.id, album_id: newAlbum.id})
 
 # work = Playlist.create(user_id: dan.id, playlist_name: "Workout Yams")
 # Playlist.create(user_id: john.id,playlist_name: "chill mix")

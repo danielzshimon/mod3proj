@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # users for each users 'playlist'
   # users/id/albums for users liked albums?
   resources :albums
-  resources :user, only: [:show, :create] do
-    resources :liked_album, only: [:index, :create]
+  resources :users, only: [:show, :create] do
+    resources :liked_albums, only: [:index, :create]
   end
 end

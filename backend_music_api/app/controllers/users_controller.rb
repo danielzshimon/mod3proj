@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @users = User.all
     render json: @users
   end
+
+  def show
+    person = User.all.find_by id: params['id']
+    render json: person
+  end
   # def index
   #   @playlists = Playlist.all
   #   render json: @playlists
