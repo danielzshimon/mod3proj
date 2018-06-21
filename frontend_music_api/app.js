@@ -15,8 +15,7 @@ function createAlbumDiv(album){
     <h1 id='album_artist'>${album.artistName}</h1>
     <p id='album_price'>${album.collectionPrice}</p>
     <button id='like_album' data-album-id=${album.collectionId} type="submit">i dig it</button>
-
-    <p>------------------------------------------------css</p>
+    
     <br>
   </form>`
 }
@@ -30,7 +29,6 @@ function renderLikesDiv(album){
     <p id='album_price'>${album.price}</p>
     <button id='delete_album' data-album-id=${album.id} type="submit">Fuck this album</button>
 
-    <p>------------------------------------------------css</p>
     <br>
   </form>`
 }
