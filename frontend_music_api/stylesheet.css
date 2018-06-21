@@ -1,18 +1,20 @@
 body {
-  background-color: turquoise;
+  background-color: rgba(48, 190, 214) !important;
   text-align: center;
-  border: 3px solid purple;
-  font-family: Arial, sans-serif; 
+  font-family: Arial, sans-serif;
 }
 
 button {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     background-color: black;
-    color: white;
+    color: white !important;
     width: 150px;
     height: 30px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    align-items: flex-end !important;
+    margin: 20px 20px 20px 20px;
+    /* justify-content: flex-end !important; */
 }
 
 button:hover {
@@ -20,12 +22,54 @@ button:hover {
     color: white;
 }
 
-.album_container {
-  border: 10px solid black;
+/* .album_container {
   background-color: lightgreen;
-}
+  border: 1px solid black;
+} */
 
 input {
   height: 30px;
   width: 200px;
+}
+
+img {
+  width: 175px;
+  height: 175px;
+  justify-content: center !important;
+}
+
+.album_box {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+.album_container {
+  display: flex;
+  height: 500px;
+  width: 300px;
+  background-color: rgba(255, 50, 210);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  margin: 20px 20px 20px 20px;
+
+}
+
+#new_form_holder {
+  margin-top: 30px;
+  justify-content: space-between;
+  line-height: 1.6;
+}
+
+#search_tab_holder {
+  margin-top: 20px;
+}
+
+.ui .card {
+  justify-content: space-around !important;
 }

@@ -9,15 +9,21 @@ function usersLogTest(){
 
 function createAlbumDiv(album){
   return`
+  <div >
   <form class="album_container" data-album-id=${album.collectionId}>
-    <h1 id='album_name'>${album.collectionName}</h1>
+    <div>
+      <h3 id='album_name'>${album.collectionName}</h3>
+    </div>
+    <div>
     <img src="${album.artworkUrl100}" alt="">
+    </div>
     <h1 id='album_artist'>${album.artistName}</h1>
     <p id='album_price'>${album.collectionPrice}</p>
-    <button id='like_album' data-album-id=${album.collectionId} type="submit">i dig it</button>
-    
+    <button id='like_album' class="button like icon" data-album-id=${album.collectionId} type="submit">i dig it</button>
+
     <br>
-  </form>`
+  </form>
+  </div>`
 }
 
 function renderLikesDiv(album){
@@ -41,6 +47,7 @@ return`<form id="new_form" action="index.html" method="post">
         <input id='album_new_artist_name_input' placeholder="Artist Name" type="text">
         <input id='album_new_art_url' placeholder="Album artwork(url)" type="text">
         <input id='album_new_price' placeholder="Album price" type="float">
+        <br><br>
         <button id='new_form_submit' type="submit" name="button">New dude</button>
       </form><br>
 `
