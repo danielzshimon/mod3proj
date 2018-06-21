@@ -2,16 +2,11 @@ const api = new Adapter()
 const albumBox = document.querySelector(".album_box")
 const newFormHolder = document.getElementById('new_form_holder')
 
-
-function usersLogTest(){
-  console.log(api.getUsers())
-}
-
 function createAlbumDiv(album){
   return`
   <form class="album_container" data-album-id=${album.collectionId}>
     <h1 id='album_name'>${album.collectionName}</h1>
-    <img src="${album.artworkUrl100}" alt="">
+    <img src="${album.artworkUrl100}" alt="album artwork" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';" style="width:100px;height:100px;">
     <h1 id='album_artist'>${album.artistName}</h1>
     <p id='album_price'>${album.collectionPrice}</p>
     <button id='like_album' data-album-id=${album.collectionId} type="submit">i dig it</button>
@@ -20,12 +15,12 @@ function createAlbumDiv(album){
     <br>
   </form>`
 }
-
+//make one dynamic delete other
 function renderLikesDiv(album){
   return`
-  <form class="album_container" data-album-id=${album.id}>
+  <form class="render_album_container" data-album-id=${album.id}>
     <h1 id='album_name'>${album.album_name}</h1>
-    <img src="${album.album_url}" alt="">
+    <img src="${album.album_url}" alt="album artwork" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';" style="width:100px;height:100px;">
     <h1 id='album_artist'>${album.artist_name}</h1>
     <p id='album_price'>${album.price}</p>
     <button id='delete_album' data-album-id=${album.id} type="submit">Fuck this album</button>
@@ -87,13 +82,13 @@ function appendAlbums(e){
     })
   })
 }
-
+//make dynamic delete other
+//make albums into results??
+//link as arg?
 function renderLikedAlbums(e){
   albumBox.innerHTML=''
   api.getUserLikes(e).then(user =>{
-    console.log(user);
     user.albums.forEach(album =>{
-      console.log(album);
       albumBox.innerHTML+=renderLikesDiv(album)
     })
   })
