@@ -22,7 +22,7 @@ function createAlbumDiv(album){
 function renderLikesDiv(album){
   return`
   <form class="album_container" data-album-id=${album.id}>
-    <h1 id='album_name'>${album.album_name}</h1>
+    <h3 id='album_name'>${album.album_name}</h3>
     <img src="${album.album_url}" alt="">
     <h1 id='album_artist'>${album.artist_name}</h1>
     <p id='album_price'>${album.price}</p>

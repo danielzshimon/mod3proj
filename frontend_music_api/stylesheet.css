@@ -51,12 +51,13 @@ img {
   display: flex;
   height: 500px;
   width: 300px;
-  background-color: rgba(255, 50, 210);
+  background-color: rgba(250, 20, 121);
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border: 2px solid black;
-  margin: 20px 20px 20px 20px;
+  margin: 20px 10px 20px 10px;
+  border-radius: 25px;
 
 }
 
