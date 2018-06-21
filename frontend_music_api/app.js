@@ -22,6 +22,7 @@ function createAlbumDiv(album){
 function renderLikesDiv(album){
   return`
 
+
   <form class="render_album_container" data-album-id=${album.id}>
     <h1 id='album_name'>${album.collectionName}</h1>
     <img src="${album.artworkUrl100}" alt="album artwork" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';" style="width:100px;height:100px;">
