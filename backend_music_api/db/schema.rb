@@ -13,10 +13,11 @@
 ActiveRecord::Schema.define(version: 2018_06_18_195556) do
 
   create_table "albums", force: :cascade do |t|
-    t.string "album_name"
-    t.string "artist_name"
-    t.float "price"
-    t.string "album_url"
+    t.string "collectionName"
+    t.string "artistName"
+    t.float "collectionPrice"
+    t.string "artworkUrl100"
+    t.integer "collectionId"
   end
 
   create_table "liked_albums", force: :cascade do |t|

@@ -37,13 +37,21 @@ class Adapter {
     },
     body: JSON.stringify(data)
   };
-
   return this.toJSON(fetch(this.liked_albums_url, options));
 }
 
-  getUserLikes(user_id) {
+  getUserLikes(userId) {
 
     return this.toJSON(fetch(this.user_url));
+  }
+  deleteFav(userId,albumId){
+    let options = {
+      method:'DELETE',
+      body: JSON.stringify(albumId)
+
+    }
+    return fetch(`${this.liked_albums_url}/${albumId}`,options)
+
   }
 
 }
