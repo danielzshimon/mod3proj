@@ -15,7 +15,6 @@ function createAlbumDiv(album){
     <h1 id='album_artist'>${album.artistName}</h1>
     <p id='album_price'>${album.collectionPrice}</p>
     <button id='like_album' class="button like icon" data-album-id=${album.collectionId} type="submit">i dig it</button>
-
     <br>
   </form>`
 }
