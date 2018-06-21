@@ -1,13 +1,17 @@
 class LikedAlbumsController < ApplicationController
-
+# before_action :liked_albums
   def index
     @liked_albums = LikedAlbum.all
     # render html: index template
     render json: @liked_albums
   end
+  def show
+    @liked_albums = LikedAlbum.all
+    liked = @liked_albums.find_by(id: params['id'])
+    render json: liked
+  end
 
   def create#adding to backend
-
     user = User.all.find_by(id: params[:user_id])
 
     album_doesnt_exist_and_is_not_favorited = false
@@ -21,10 +25,10 @@ class LikedAlbumsController < ApplicationController
 #needs purifying
     if params[:albumId].nil?
       #function1(params)
-        alba = Album.create(album_name: params[:collectionName],
-        artist_name: params[:artistName],
-        price: params[:collectionPrice],
-        album_url: params[:artworkUrl100])
+        alba = Album.create(collectionName: params[:collectionName],
+        artistName: params[:artistName],
+        collectionPrice: params[:collectionPrice],
+        artworkUrl100: params[:artworkUrl100])
       #function1 end
       #function2(objId)
         liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
@@ -32,13 +36,13 @@ class LikedAlbumsController < ApplicationController
       #function2 end
 
     elsif album_doesnt_exist_and_is_not_favorited
-      if Album.where(id: params[:albumId]) == []
+      if Album.where(collectionId: params[:albumId]) == []
         #
-          alba = Album.create(album_name: params[:collectionName],
-          artist_name: params[:artistName],
-          price: params[:collectionPrice],
-          album_url: params[:artworkUrl100], #
-          id: params[:albumId])# return.id = params id
+          alba = Album.create(collectionName: params[:collectionName],
+          artistName: params[:artistName],
+          collectionPrice: params[:collectionPrice],
+          artworkUrl100: params[:artworkUrl100], #
+          collectionId: params[:albumId])# return.id = params id
           #
         liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
         liked_album.save
@@ -53,7 +57,13 @@ class LikedAlbumsController < ApplicationController
     render json: liked_album
   end
 
-  private
-
+  def destroy
+    User.all.find_by(id: params['user_id']).liked_albums.find_by(album_id: params['id']).destroy
+  end
 
 end
+#
+#   private
+#
+#
+# end

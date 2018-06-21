@@ -1,6 +1,4 @@
 class UserLikedAlbumSerializer < ActiveModel::Serializer
-  attributes :id, :album_name, :artist_name, :price, :album_url
-
-
+  attributes :id, :collectionName, :artistName, :collectionPrice, :artworkUrl100, :collectionId
 
 end

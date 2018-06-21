@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # t.string :name
-# t.float :price
-# t.string :album_url
-newAlbum = Album.create(album_name: "johhny album", artist_name: "jimmy the band", price: 12.99,album_url: "www.album")
-Album.create(album_name: "john album",artist_name: "john the band",price: 10.99,album_url: "www.album")
-Album.create(album_name: "chris'",artist_name: "chris the band",price: 12.99,album_url: "www.album")
-Album.create(album_name: "DanTheMan",artist_name: "dan the band",price: 120.99,album_url: "www.album")
+# t.float :collectionPrice
+# t.string :artworkUrl100
+newAlbum = Album.create(collectionName: "johhny album", artistName: "jimmy the band", collectionPrice: 12.99,artworkUrl100: "www.album")
+Album.create(collectionName: "john album",artistName: "john the band",collectionPrice: 10.99,artworkUrl100: "www.album")
+Album.create(collectionName: "chris'",artistName: "chris the band",collectionPrice: 12.99,artworkUrl100: "www.album")
+Album.create(collectionName: "DanTheMan",artistName: "dan the band",collectionPrice: 120.99,artworkUrl100: "www.album")
 
 dan = User.create(username: "DanTheMan",password: "password")
 john = User.create(username: "john",password: "password")

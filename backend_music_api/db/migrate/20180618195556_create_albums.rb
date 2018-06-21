@@ -1,10 +1,11 @@
 class CreateAlbums < ActiveRecord::Migration[5.2]
   def change
     create_table :albums do |t|
-      t.string :album_name
-      t.string :artist_name
-      t.float :price
-      t.string :album_url
+      t.string :collectionName
+      t.string :artistName
+      t.float :collectionPrice
+      t.string :artworkUrl100
+      t.integer :collectionId
     end
   end
 end
