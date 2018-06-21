@@ -19,10 +19,10 @@ function createAlbumDiv(album){
 function renderLikesDiv(album){
   return`
   <form class="render_album_container" data-album-id=${album.id}>
-    <h1 id='album_name'>${album.album_name}</h1>
-    <img src="${album.album_url}" alt="album artwork" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';" style="width:100px;height:100px;">
-    <h1 id='album_artist'>${album.artist_name}</h1>
-    <p id='album_price'>${album.price}</p>
+    <h1 id='album_name'>${album.collectionName}</h1>
+    <img src="${album.artworkUrl100}" alt="album artwork" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';" style="width:100px;height:100px;">
+    <h1 id='album_artist'>${album.artistName}</h1>
+    <p id='album_price'>${album.collectionPrice}</p>
     <button id='delete_album' data-album-id=${album.id} type="submit">Fuck this album</button>
 
     <p>------------------------------------------------css</p>
