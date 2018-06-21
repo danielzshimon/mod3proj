@@ -1,6 +1,6 @@
 
 class Adapter {
-  constructor() {//urls for our requests
+  constructor() {//urls for our requests//make more dynamic
     this.user_url = "http://localhost:3000/users/1"
     this.albums_url = "http://localhost:3000/albums"
     this.liked_albums_url = "http://localhost:3000/users/1/liked_albums"
@@ -41,31 +41,9 @@ class Adapter {
   return this.toJSON(fetch(this.liked_albums_url, options));
 }
 
-getUserLikes(user_id) {
+  getUserLikes(user_id) {
 
-  return this.toJSON(fetch(this.user_url));
+    return this.toJSON(fetch(this.user_url));
+  }
+
 }
-
-
-// ,
-  // likeAlbum(data){
-  // let options = {
-  //   method: 'POST',
-  //   headers: {
-  //     'Accept': 'application/json',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(data)
-  // };
-  // return this.toJSON(fetch(this.????, options));
-  // }
-}
-
-
-// searchArtists(artist) {
-//   return fetch(`https://itunes.apple.com/search?term=${artist}&entity=allArtist`).then(resp => resp.json())
-// }
-//
-// searchSongs(song) {
-//   return fetch(`https://itunes.apple.com/search?term=${song}&entity=song&attribute=songTerm`).then(resp => resp.json())
-// }

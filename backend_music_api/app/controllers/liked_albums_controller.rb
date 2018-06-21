@@ -1,5 +1,4 @@
 class LikedAlbumsController < ApplicationController
-  # protect_from_forgery except: [:create]
 
   def index
     @liked_albums = LikedAlbum.all
@@ -13,60 +12,48 @@ class LikedAlbumsController < ApplicationController
 
     album_doesnt_exist_and_is_not_favorited = false
     begin
-      user.albums.find(params[:albumId]) #does this throw and error???false
+      user.albums.find(params[:albumId])
     rescue ActiveRecord::RecordNotFound => e
-        #it dooo
       album_doesnt_exist_and_is_not_favorited = true
     end
     # byebug
 # if user.liked_albums contains 'this id' dont add a like
+#needs purifying
     if params[:albumId].nil?
-      alba = Album.create(album_name: params[:collectionName],
+      #function1(params)
+        alba = Album.create(album_name: params[:collectionName],
         artist_name: params[:artistName],
         price: params[:collectionPrice],
         album_url: params[:artworkUrl100])
-
+      #function1 end
+      #function2(objId)
         liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
         liked_album.save
+      #function2 end
 
     elsif album_doesnt_exist_and_is_not_favorited
-      # byebug
       if Album.where(id: params[:albumId]) == []
-
-        alba = Album.create(album_name: params[:collectionName],
+        #
+          alba = Album.create(album_name: params[:collectionName],
           artist_name: params[:artistName],
           price: params[:collectionPrice],
-          album_url: params[:artworkUrl100],
-          id: params[:albumId])
-
+          album_url: params[:artworkUrl100], #
+          id: params[:albumId])# return.id = params id
+          #
         liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
         liked_album.save
-
+          #
       else
-
+        #
         liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: params[:albumId]})
         liked_album.save
+        #
       end
-
     end
-
-
-    # liked_album = LikedAlbum.new({user_id: params[:user_id],album_id: alba.id})
-    # liked_album.save
     render json: liked_album
   end
 
   private
 
-  def liked_album_params
-    params.permit(:user_id)
-  end
-  def create_album_params
-    params.permit(:collectionName, :artistName, :artworkUrl100, :collectionPrice)
-  end
-  # def album_params
-  #   Album.create(album_name: params[:collectionName], artist_name: params[:artistName], price: params[:price], album_url: params[:artworkUrl100])
-  #
-  # end
 
 end
