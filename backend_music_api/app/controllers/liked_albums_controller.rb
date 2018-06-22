@@ -12,8 +12,8 @@ class LikedAlbumsController < ApplicationController
   end
 
   def create#adding to backend
+    # byebug
     user = User.all.find_by(id: params[:user_id])
-
     album_doesnt_exist_and_is_not_favorited = false
     begin
       user.albums.find(params[:albumId])
@@ -49,7 +49,8 @@ class LikedAlbumsController < ApplicationController
           #
       else
         #
-        liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: params[:albumId]})
+        album = Album.all.find_by(collectionId: params[:albumId])
+        liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: album.id})
         liked_album.save
         #
       end

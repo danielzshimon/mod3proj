@@ -1,4 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :username, :albums
-  has_many :albums, serializer: UserLikedAlbumSerializer
+  has_many :albums, serializer: AlbumSerializer
 end

@@ -20,10 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }else if(e.target.id === 'new_form'){
       //on submit new form send to backend and save
       api.createAlbum(makeAlbumData(e))
-      .then(x=>
-        {renderLikedAlbums(e.target.dataset.userId)
-          removeNewForm()})
-    }else if(e.target.className === 'album_container'){
+    }else if(e.target.className === 'render_album_container'){
       api.createAlbum(sendAlbumData(e))
     }
   })

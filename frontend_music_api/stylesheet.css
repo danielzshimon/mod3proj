@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(48, 190, 214) !important;
+  background-color: rgba(148, 250, 251) !important;
   text-align: center;
   font-family: Arial, sans-serif;
 }
@@ -7,7 +7,7 @@ body {
 button {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    background-color: black;
+    background-color: rgb(176, 0, 254);
     color: white !important;
     width: 150px;
     height: 30px;
@@ -18,8 +18,8 @@ button {
 }
 
 button:hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
+    background-color: rgb(1, 255, 172);
+    color: black;
 }
 
 /* .album_container {
@@ -45,12 +45,15 @@ img {
   flex-wrap: wrap;
   margin-top: 50px;
   justify-content: space-around;
+
 }
 
-.album_container {
+.render_album_container {
   display: flex;
   height: 500px;
   width: 300px;
+  background-color: rgba(250, 20, 121, .7);
+
   background-color: rgba(250, 20, 121);
   flex-direction: column;
   justify-content: space-between;
@@ -61,6 +64,18 @@ img {
 
 }
 
+h3 {
+  margin-top: 20px !important;
+}
+h1{
+  font-size: 64px;
+  background-color: rgba(250, 20, 121, .5);
+
+}
+/* #album_search_input{
+  background-color: rgba(250, 20, 121, .5);
+  color: black;
+} */
 #new_form_holder {
   margin-top: 30px;
   justify-content: space-between;
