@@ -13,16 +13,17 @@ class LikedAlbumsController < ApplicationController
 
   def create#adding to backend
     user = User.all.find_by(id: params[:user_id])
-
-    album_doesnt_exist_and_is_not_favorited = false
-    begin
-      user.albums.find(params[:albumId])
-    rescue ActiveRecord::RecordNotFound => e
-      album_doesnt_exist_and_is_not_favorited = true
-    end
-    # byebug
+    # album_doesnt_exist_and_is_not_favorited = false
+    # begin
+    #   user.albums.find_by(colletionId: params[:albumId])
+    # rescue ActiveRecord::RecordNotFound => e
+    #   album_doesnt_exist_and_is_not_favorited = true
+    # end
 # if user.liked_albums contains 'this id' dont add a like
 #needs purifying
+
+check = user.albums.find_by(collectionId: params[:albumId])
+
     if params[:albumId].nil?
       #function1(params)
         alba = Album.create(collectionName: params[:collectionName],
@@ -34,8 +35,8 @@ class LikedAlbumsController < ApplicationController
         liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: alba.id})
         liked_album.save
       #function2 end
+    elsif check.nil?
 
-    elsif album_doesnt_exist_and_is_not_favorited
       if Album.where(collectionId: params[:albumId]) == []
         #
           alba = Album.create(collectionName: params[:collectionName],
@@ -49,7 +50,8 @@ class LikedAlbumsController < ApplicationController
           #
       else
         #
-        liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: params[:albumId]})
+        album = Album.all.find_by(collectionId: params[:albumId])
+        liked_album = LikedAlbum.new({user_id: params[:user_id], album_id: album.id})
         liked_album.save
         #
       end
